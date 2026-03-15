@@ -13,12 +13,12 @@ const currentPath = Astro.url.pathname;
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
-      <a href="/" class="font-heading text-2xl text-gold-700 hover:text-gold-600 transition-colors">
+      <a href="/" class="font-heading text-xl sm:text-2xl text-gold-700 hover:text-gold-600 transition-colors">
         Mimis-kreativstudio
       </a>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center gap-8">
+      <ul class="hidden md:flex items-center gap-6 lg:gap-8">
         {navItems.map((item) => (
           <li>
             <a
@@ -38,13 +38,102 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile Menu Button -->
       <button
         type="button"
-        class="md:hidden p-2 text-gray-600 hover:text-gold-600"
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-600 hover:text-gold-600 transition-colors"
         aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
     </div>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div 
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-gold-100"
+    aria-hidden="true"
+  >
+    <div class="container mx-auto px-4 py-4">
+      <ul class="space-y-2">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`block py-3 px-4 rounded-lg font-body text-base transition-colors duration-300
+                ${currentPath === item.href 
+                  ? 'text-gold-600 font-medium bg-gold-50' 
+                  : 'text-gray-600 hover:text-gold-500 hover:bg-gold-50'
+                }`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </nav>
+
+<script>
+  // Mobile menu toggle functionality
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  function toggleMenu() {
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      // Close menu
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('block');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Menü öffnen');
+    } else {
+      // Open menu
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('block');
+      menuIcon.classList.add('hidden');
+      closeIcon.classList.remove('hidden');
+      menuButton.setAttribute('aria-expanded', 'true');
+      menuButton.setAttribute('aria-label', 'Menü schließen');
+    }
+  }
+
+  menuButton?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!menuButton?.contains(target) && !mobileMenu?.contains(target)) {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('block');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'Menü öffnen');
+    }
+  });
+
+  // Close menu when pressing Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('block');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.setAttribute('aria-label', 'Menü öffnen');
+    }
+  });
+</script>

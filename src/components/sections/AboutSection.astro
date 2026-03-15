@@ -8,13 +8,13 @@ const {
 } = Astro.props;
 ---
 
-<section id="ueber-mich" class="py-20 bg-white">
+<section id="ueber-mich" class="py-12 sm:py-16 md:py-20 bg-white">
   <div class="container mx-auto px-4">
     <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
         {/* Photo */}
         <div class="relative order-2 md:order-1">
-          <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gray-100">
+          <div class="aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-xl bg-gray-100">
             <img
               src="/images/about/miriam-placeholder.jpg"
               alt={photoAlt}
@@ -22,17 +22,17 @@ const {
             />
           </div>
           {/* Decorative frame */}
-          <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold-400 rounded-2xl -z-10"></div>
+          <div class="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-full h-full border-2 border-gold-400 rounded-xl sm:rounded-2xl -z-10"></div>
         </div>
 
         {/* Content */}
         <div class="order-1 md:order-2">
-          <h2 class="font-heading text-4xl md:text-5xl text-gold-700 mb-6">
+          <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-gold-700 mb-4 sm:mb-6">
             Hallo, ich bin Miriam
           </h2>
-          <div class="w-20 h-1 bg-rose-400 rounded-full mb-6"></div>
+          <div class="w-16 sm:w-20 h-1 bg-rose-400 rounded-full mb-4 sm:mb-6"></div>
           
-          <div class="space-y-6 font-body text-gray-700 leading-relaxed">
+          <div class="space-y-4 sm:space-y-6 font-body text-gray-700 leading-relaxed text-sm sm:text-base">
             <p>
               Willkommen bei <strong>Mimis-kreativstudio</strong> – meinem kleinen Reich der Blumen 
               und kreativen Gestaltung. Hier entstehen mit viel Liebe zum Detail handgefertigte 
@@ -51,30 +51,30 @@ const {
           </div>
 
           {/* Highlights */}
-          <div class="grid grid-cols-3 gap-4 mt-8">
-            <div class="text-center p-4 bg-gold-50 rounded-lg">
-              <span class="block font-heading text-3xl text-gold-600">10+</span>
-              <span class="text-sm text-gray-600">Jahre Erfahrung</span>
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
+            <div class="text-center p-3 sm:p-4 bg-gold-50 rounded-lg">
+              <span class="block font-heading text-2xl sm:text-3xl text-gold-600">10+</span>
+              <span class="text-xs sm:text-sm text-gray-600">Jahre Erfahrung</span>
             </div>
-            <div class="text-center p-4 bg-rose-50 rounded-lg">
-              <span class="block font-heading text-3xl text-rose-500">500+</span>
-              <span class="text-sm text-gray-600"> zufriedene Kunden</span>
+            <div class="text-center p-3 sm:p-4 bg-rose-50 rounded-lg">
+              <span class="block font-heading text-2xl sm:text-3xl text-rose-500">500+</span>
+              <span class="text-xs sm:text-sm text-gray-600"> zufriedene Kunden</span>
             </div>
-            <div class="text-center p-4 bg-gold-50 rounded-lg">
-              <span class="block font-heading text-3xl text-gold-600">6</span>
-              <span class="text-sm text-gray-600">Kernleistungen</span>
+            <div class="text-center p-3 sm:p-4 bg-gold-50 rounded-lg">
+              <span class="block font-heading text-2xl sm:text-3xl text-gold-600">6</span>
+              <span class="text-xs sm:text-sm text-gray-600">Kernleistungen</span>
             </div>
           </div>
 
           {/* CTA */}
-          <div class="mt-8">
+          <div class="mt-6 sm:mt-8">
             <a
               href="/kontakt"
-              class="inline-flex items-center px-6 py-3 bg-gold-500 text-white rounded-lg
-                hover:bg-gold-600 transition-all duration-300 font-body"
+              class="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-gold-500 text-white rounded-lg
+                hover:bg-gold-600 transition-all duration-300 font-body text-sm sm:text-base"
             >
               Lernen Sie mich kennen
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
             </a>

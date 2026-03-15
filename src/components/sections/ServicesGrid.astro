@@ -61,21 +61,21 @@ const services = [
 const cornerPositions = ['top-right', 'bottom-left', 'top-right', 'top-right', 'top-right', 'bottom-right'] as const;
 ---
 
-<section id="leistungen" class="py-20 bg-gold-50">
+<section id="leistungen" class="py-12 sm:py-16 md:py-20 bg-gold-50">
   <div class="container mx-auto px-4">
     {/* Section Header */}
-    <div class="text-center mb-16">
-      <h2 class="font-heading text-4xl md:text-5xl text-gold-700 mb-4">
+    <div class="text-center mb-10 sm:mb-12 md:mb-16">
+      <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-gold-700 mb-3 sm:mb-4">
         Meine Leistungen
       </h2>
-      <p class="font-body text-xl text-gray-600 max-w-2xl mx-auto">
+      <p class="font-body text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
         Entdecken Sie meine handgefertigten Blumenkreationen für jeden besonderen Anlass
       </p>
-      <div class="w-24 h-1 bg-rose-400 mx-auto mt-6 rounded-full"></div>
+      <div class="w-20 sm:w-24 h-1 bg-rose-400 mx-auto mt-4 sm:mt-6 rounded-full"></div>
     </div>
 
     {/* Services Grid */}
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       {services.map((service, index) => (
         <a 
           href={`/leistungen/${service.slug}`}
@@ -83,7 +83,7 @@ const cornerPositions = ['top-right', 'bottom-left', 'top-right', 'top-right', '
         >
           <div class="relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 group-hover:shadow-2xl">
             {/* Image */}
-            <div class="relative h-80 bg-gray-200">
+            <div class="relative h-64 sm:h-72 md:h-80 bg-gray-200">
               <img
                 src={service.image}
                 alt={service.title}
