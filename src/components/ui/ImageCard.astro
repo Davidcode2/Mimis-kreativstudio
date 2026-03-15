@@ -47,11 +47,11 @@ const positionOpposites: Record<ImagePosition, ImagePosition> = {
 
 const textPosition = positionOpposites[imagePosition];
 
-// Variant sizing configurations
+// Variant sizing configurations - taller on mobile for better readability
 const variantSizes = {
-  small: 'h-56 sm:h-64 md:h-80',
-  medium: 'h-64 sm:h-80 md:h-96',
-  large: 'h-72 sm:h-96 md:h-[28rem]'
+  small: 'h-80 sm:h-96 md:h-[28rem]',
+  medium: 'h-96 sm:h-[28rem] md:h-[32rem]',
+  large: 'h-[28rem] sm:h-[32rem] md:h-[36rem]'
 };
 
 // Image position classes
