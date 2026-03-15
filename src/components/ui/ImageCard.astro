@@ -73,12 +73,9 @@ const textPositionClasses: Record<ImagePosition, string> = {
 const cardClasses = `
   relative
   overflow-hidden
-  rounded-lg
-  shadow-md
-  hover:shadow-lg
-  transition-shadow
-  duration-300
-  bg-gold-50
+  bg-white
+  border
+  border-champagne-300
   ${variantSizes[variant]}
   ${className}
 `;
@@ -95,7 +92,7 @@ const cardClasses = `
     <img
       src={src}
       alt={alt}
-      class="w-full h-full object-cover rounded-lg"
+      class="w-full h-full object-cover"
       loading="lazy"
     />
   </div>
@@ -105,17 +102,16 @@ const cardClasses = `
     'absolute',
     textPositionClasses[textPosition],
     'max-w-[55%] p-4 md:p-6',
-    'bg-white/90 backdrop-blur-sm',
-    'rounded-lg',
-    'border border-gold-200/50',
-    'shadow-sm'
+    'bg-white/95',
+    'border',
+    'border-champagne-200'
   ]}>
     <h3 class="font-heading text-xl md:text-2xl text-gold-700 mb-1">
       {title}
     </h3>
     
     {subtitle && (
-      <p class="font-body text-sm md:text-base text-gold-500 mb-2 font-medium italic">
+      <p class="font-body text-sm md:text-base text-champagne-600 mb-2 font-medium italic">
         {subtitle}
       </p>
     )}
