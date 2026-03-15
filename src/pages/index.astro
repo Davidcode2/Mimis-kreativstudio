@@ -1,17 +1,42 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import CTASection from '../components/sections/CTASection.astro';
 
+const title = 'Startseite';
+const description = 'Mimis-kreativstudio - Handgefertigte Blumenkreationen für Ihre besonderen Momente. Blumenkränze, Sträuße, Adventskränze, Haar-Accessoires und Workshops.';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description}>
+  <main>
+    <!-- Hero Section -->
+    <Hero
+      title="Mimis-kreativstudio"
+      subtitle="Handgefertigte Blumenkreationen für Ihre besonderen Momente"
+      backgroundImage="/images/hero/hero-default.jpg"
+      showCta={true}
+    />
+
+    <!-- Introduction -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 text-center max-w-3xl">
+        <p class="font-body text-xl text-gray-700 leading-relaxed italic">
+          "Jede Blume erzählt eine Geschichte. Lassen Sie uns gemeinsam Ihre Geschichte 
+          in wunderschönen Arrangements verewigen."
+        </p>
+        <div class="w-16 h-px bg-gold-400 mx-auto mt-6"></div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <ServicesGrid />
+
+    <!-- About Section -->
+    <AboutSection />
+
+    <!-- CTA Section -->
+    <CTASection />
+  </main>
+</BaseLayout>

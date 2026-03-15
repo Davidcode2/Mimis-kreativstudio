@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Google Fonts imports */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=WindSong&display=swap');
+
+/* Base styles for the wedding planner aesthetic */
+@layer base {
+  html {
+    font-family: 'Source Serif 4', serif;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'WindSong', cursive;
+    font-weight: 400;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+/* Custom utility classes for the wedding planner aesthetic */
+@layer utilities {
+  .text-gold-accent {
+    @apply text-gold-500;
+  }
+
+  .text-rose-accent {
+    @apply text-rose-500;
+  }
+
+  .bg-gold-accent {
+    @apply bg-gold-500;
+  }
+
+  .bg-rose-accent {
+    @apply bg-rose-500;
+  }
+
+  .border-gold-accent {
+    @apply border-gold-500;
+  }
+
+  .border-rose-accent {
+    @apply border-rose-500;
+  }
+
+  .font-heading {
+    font-family: 'WindSong', cursive;
+  }
+
+  .font-body {
+    font-family: 'Source Serif 4', serif;
+  }
+}

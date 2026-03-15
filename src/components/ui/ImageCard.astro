@@ -1,0 +1,149 @@
+---
+// ImageCard.astro - Reusable card component with corner-positioned image and text overlay
+// Part of Mimis-kreativstudio website
+
+type ImagePosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
+interface Props {
+  // Image props
+  src: string;
+  alt: string;
+  imagePosition?: ImagePosition; // default: 'top-right'
+  
+  // Text content
+  title: string;
+  subtitle?: string;
+  description?: string;
+  
+  // Link (optional, makes entire card clickable)
+  href?: string;
+  
+  // Size variant
+  variant?: 'small' | 'medium' | 'large';
+  
+  // Optional styling overrides
+  className?: string;
+}
+
+const {
+  src,
+  alt,
+  imagePosition = 'top-right',
+  title,
+  subtitle,
+  description,
+  href,
+  variant = 'medium',
+  className = ''
+} = Astro.props;
+
+// Calculate text position (opposite corner from image)
+const positionOpposites: Record<ImagePosition, ImagePosition> = {
+  'top-left': 'bottom-right',
+  'top-right': 'bottom-left',
+  'bottom-left': 'top-right',
+  'bottom-right': 'top-left'
+};
+
+const textPosition = positionOpposites[imagePosition];
+
+// Variant sizing configurations
+const variantSizes = {
+  small: 'h-64 md:h-80',
+  medium: 'h-80 md:h-96',
+  large: 'h-96 md:h-[28rem]'
+};
+
+// Image position classes
+const imagePositionClasses: Record<ImagePosition, string> = {
+  'top-left': 'top-0 left-0',
+  'top-right': 'top-0 right-0',
+  'bottom-left': 'bottom-0 left-0',
+  'bottom-right': 'bottom-0 right-0'
+};
+
+// Text position classes (with overlay offset)
+const textPositionClasses: Record<ImagePosition, string> = {
+  'top-left': 'top-4 left-4 md:top-6 md:left-6',
+  'top-right': 'top-4 right-4 md:top-6 md:right-6',
+  'bottom-left': 'bottom-4 left-4 md:bottom-6 md:left-6',
+  'bottom-right': 'bottom-4 right-4 md:bottom-6 md:right-6'
+};
+
+const cardClasses = `
+  relative
+  overflow-hidden
+  rounded-lg
+  shadow-md
+  hover:shadow-lg
+  transition-shadow
+  duration-300
+  bg-gold-50
+  ${variantSizes[variant]}
+  ${className}
+`;
+---
+
+<div class:list={cardClasses}>
+  <!-- Image positioned in specified corner (40% of card) -->
+  <div class:list={[
+    'absolute',
+    imagePositionClasses[imagePosition],
+    'w-full h-full',
+    'max-w-[45%] max-h-[45%]'
+  ]}>
+    <img
+      src={src}
+      alt={alt}
+      class="w-full h-full object-cover rounded-lg"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Text content positioned in opposite corner (60% of card) -->
+  <div class:list={[
+    'absolute',
+    textPositionClasses[textPosition],
+    'max-w-[55%] p-4 md:p-6',
+    'bg-white/90 backdrop-blur-sm',
+    'rounded-lg',
+    'border border-gold-200/50',
+    'shadow-sm'
+  ]}>
+    <h3 class="font-heading text-xl md:text-2xl text-gold-700 mb-1">
+      {title}
+    </h3>
+    
+    {subtitle && (
+      <p class="font-body text-sm md:text-base text-gold-500 mb-2 font-medium italic">
+        {subtitle}
+      </p>
+    )}
+    
+    {description && (
+      <p class="font-body text-sm text-gray-600 leading-relaxed line-clamp-3">
+        {description}
+      </p>
+    )}
+  </div>
+
+  <!-- Clickable overlay when href is provided -->
+  {href && (
+    <a
+      href={href}
+      class="absolute inset-0 z-10"
+      aria-label={`Mehr erfahren über ${title}`}
+    >
+      <span class="sr-only">Mehr erfahren über {title}</span>
+    </a>
+  )}
+</div>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

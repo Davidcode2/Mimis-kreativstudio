@@ -1,0 +1,50 @@
+---
+const navItems = [
+  { label: 'Start', href: '/' },
+  { label: 'Leistungen', href: '/leistungen' },
+  { label: 'Über mich', href: '/ueber-mich' },
+  { label: 'Kontakt', href: '/kontakt' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gold-100">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="/" class="font-heading text-2xl text-gold-700 hover:text-gold-600 transition-colors">
+        Mimis-kreativstudio
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-8">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`font-body text-sm uppercase tracking-wider transition-colors duration-300
+                ${currentPath === item.href 
+                  ? 'text-gold-600 font-medium' 
+                  : 'text-gray-600 hover:text-gold-500'
+                }`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        type="button"
+        class="md:hidden p-2 text-gray-600 hover:text-gold-600"
+        aria-label="Menü öffnen"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
