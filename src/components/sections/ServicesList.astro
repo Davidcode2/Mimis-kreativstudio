@@ -1,0 +1,166 @@
+---
+// ServicesList - Elegant single-column layout with alternating positions
+// Header overlays image with radial gradient background, description alternates left/right
+
+const services = [
+  {
+    slug: 'blumenkraenze',
+    title: 'Blumenkränze',
+    subtitle: 'Zeitlose Eleganz',
+    description: 'Handgefertigte Blumenkränze aus natürlichen Blumen, mit Liebe zum Detail gestaltet.',
+    image: '/images/lush_kranz_white_hide_grass_bg.webp',
+  },
+  {
+    slug: 'loops',
+    title: 'Loops',
+    subtitle: 'Moderne Eleganz',
+    description: 'Der zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.',
+    image: '/images/loop_in_progress_workshop.webp',
+  },
+  {
+    slug: 'bluemenstrausse',
+    title: 'Blumensträuße',
+    subtitle: 'Natürliche Schönheit',
+    description: 'Frische Blumen, mit Liebe zusammengestellt – ein persönliches Statement.',
+    image: '/images/lush_strauss_in_hand_garden_background.webp',
+  },
+  {
+    slug: 'adventskraenze',
+    title: 'Adventskränze',
+    subtitle: 'Festliche Tradition',
+    description: 'Traditionelles Handwerk für die schönste Zeit des Jahres mit weihnachtlicher Gemütlichkeit.',
+    image: '/images/adventskranz_white_candles_tall_white_bg.webp',
+  },
+  {
+    slug: 'frisuren',
+    title: 'Frisuren',
+    subtitle: 'Romantischer Schmuck',
+    description: 'Zarte Blüten für Ihr Haar – romantischer Schmuck für unvergessliche Momente.',
+    image: '/images/services/frisuren/haarkranz_ganz.webp',
+  },
+  {
+    slug: 'workshops',
+    title: 'Workshops',
+    subtitle: 'Kreatives Erlebnis',
+    description: 'Lernen Sie die Kunst der Floristik – für sich selbst oder im Team.',
+    image: '/images/services/workshops/loop_workshop_done_small.webp',
+  },
+];
+---
+
+<section id="leistungen" class="py-20 md:py-32 bg-gold-50 overflow-hidden">
+  <div class="container mx-auto px-4 md:px-8">
+    {/* Section Header */}
+    <div class="text-center mb-20 md:mb-32">
+      <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl text-gold-700 mb-6">
+        Meine Leistungen
+      </h2>
+      <p class="font-body text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        Entdecken Sie meine handgefertigten Blumenkreationen für jeden besonderen Anlass
+      </p>
+      <div class="w-24 h-1 bg-champagne-400 mx-auto mt-8"></div>
+    </div>
+
+    {/* Services List */}
+    <div class="space-y-24 md:space-y-40">
+      {services.map((service, index) => {
+        const isEven = index % 2 === 0;
+        
+        return (
+          <a 
+            href={`/leistungen/${service.slug}`}
+            class="block group"
+            aria-label={`Mehr erfahren über ${service.title}`}
+          >
+            <article class:list={[
+              "relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center",
+            ]}>
+              {/* Text Content - Alternates sides on desktop */}
+              <div class:list={[
+                "lg:col-span-4 space-y-4 order-2",
+                isEven ? "lg:order-1 lg:col-start-1" : "lg:order-2 lg:col-start-9",
+              ]}>
+                <span class="inline-block text-champagne-600 text-sm tracking-widest uppercase font-body">
+                  {service.subtitle}
+                </span>
+                <p class="font-body text-gray-600 text-base md:text-lg leading-relaxed">
+                  {service.description}
+                </p>
+                <span class="inline-flex items-center text-gold-600 font-body text-sm group-hover:text-gold-700 transition-colors duration-300">
+                  Mehr erfahren
+                  <svg 
+                    class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </span>
+              </div>
+
+              {/* Image Container - Large, with overlaid title */}
+              <div class:list={[
+                "lg:col-span-8 relative order-1",
+                isEven ? "lg:order-2 lg:col-start-5" : "lg:order-1 lg:col-start-1",
+              ]}>
+                <div class="relative aspect-[4/3] lg:aspect-[16/10] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Gradient overlay - fades image to white on side where header overlaps */}
+                  <div class:list={[
+                    "absolute inset-0",
+                    isEven 
+                      ? "bg-gradient-to-l from-transparent via-white/80 via-[45%] to-white/95" 
+                      : "bg-gradient-to-r from-transparent via-white/80 via-[45%] to-white/95"
+                  ]}></div>
+                </div>
+
+                {/* Title Overlay */}
+                <div class:list={[
+                  "absolute bottom-4 left-4 right-4",
+                  "lg:absolute lg:bottom-8",
+                  isEven ? "lg:left-8 lg:right-auto" : "lg:right-8 lg:left-auto",
+                ]}>
+                  <h3 class:list={[
+                    "font-heading text-3xl md:text-4xl lg:text-6xl xl:text-7xl",
+                    "text-gold-700",
+                    "transition-colors duration-300",
+                    "group-hover:text-gold-600",
+                  ]}>
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Decorative accent line */}
+                <div class:list={[
+                  "hidden lg:block absolute top-8 w-24 h-px bg-gold-400/60",
+                  isEven ? "right-0 translate-x-12" : "left-0 -translate-x-12",
+                ]}></div>
+              </div>
+            </article>
+          </a>
+        );
+      })}
+    </div>
+
+    {/* View All Link */}
+    <div class="text-center mt-24 md:mt-32">
+      <a
+        href="/leistungen"
+        class="inline-flex items-center px-8 py-3 border-2 border-gold-500 text-gold-700 
+          hover:bg-gold-500 hover:text-white transition-all duration-300 font-body"
+      >
+        Alle Leistungen ansehen
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

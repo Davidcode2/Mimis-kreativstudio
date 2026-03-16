@@ -31,7 +31,7 @@ Ein handgefertigter Blumenkranz von Miriam Mangold ist weit mehr als nur Dekorat
 **Moderne Florale Loops**
 
 ### Untertitel/Hook
-Der zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.
+Die zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.
 
 ### Beschreibung (2-3 Sätze)
 Die floralen Loops von Miriam Mangold interpretieren die Tradition des Kranzes neu und bieten eine moderne, reduzierte Alternative. Mit ihrer organischen Form und dem Fokus auf ausgewählte Blüten setzen sie stilvolle Akzente ohne üppige Fülle. Ideal für zeitgenössische Hochzeiten, Event-Dekorationen und alle, die Eleganz in schlichter Form schätzen.
