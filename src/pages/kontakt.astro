@@ -3,6 +3,7 @@
 // Created: 2026-03-15
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageCard from '../components/ui/ImageCard.astro';
+import { siteConfig } from '../data/site-config';
 
 const title = 'Kontakt';
 const description = 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blumenkreationen, Workshops und Anfragen.';
@@ -159,7 +160,7 @@ const description = 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blum
                   </svg>
                   <div>
                     <p class="font-medium text-gold-700">E-Mail</p>
-                    <p class="text-gray-600">[email@adresse.de]</p>
+                    <p class="text-gray-600">{siteConfig.email}</p>
                   </div>
                 </div>
               </div>
@@ -250,7 +251,7 @@ const description = 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blum
           <div class="flex flex-wrap justify-center gap-6">
             {/* Instagram Placeholder */}
             <a 
-              href="https://www.instagram.com/mimis_kreativstudio/" target="_blank" 
+              href={siteConfig.social.instagram} target="_blank" 
               class="flex items-center gap-3 px-6 py-4 bg-white hover: transition-all border border-gold-200/50 group"
             >
               <svg class="w-8 h-8 text-champagne-500 group-hover:text-champagne-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">

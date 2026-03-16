@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site-config';
 
 const title = 'Impressum';
 const description = 'Impressum und rechtliche Informationen für Mimis-kreativstudio.';
@@ -13,28 +14,28 @@ const description = 'Impressum und rechtliche Informationen für Mimis-kreativst
       <div class="prose prose-lg font-body text-gray-700">
         <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
         <p>
-          <strong>Mimis-kreativstudio</strong><br>
-          Miriam Mangold<br>
-          [Straße und Hausnummer]<br>
-          [PLZ] [Stadt]
+          <strong>{siteConfig.businessName}</strong><br>
+          {siteConfig.ownerName}<br>
+          {siteConfig.address.street}<br>
+          {siteConfig.address.zipCode} {siteConfig.address.city}
         </p>
 
         <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Kontakt</h2>
         <p>
-          Telefon: [Telefonnummer]<br>
-          E-Mail: hello@mimis-kreativstudio.de
+          {siteConfig.phone ? `Telefon: ${siteConfig.phone}<br>` : ''}
+          E-Mail: {siteConfig.email}
         </p>
 
         <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Umsatzsteuer-ID</h2>
         <p>
           Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
-          [USt-IdNr.]
+          {siteConfig.vatId || '[USt-IdNr.]'}
         </p>
 
         <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
         <p>
-          Miriam Mangold<br>
-          [Adresse wie oben]
+          {siteConfig.ownerName}<br>
+          {siteConfig.address.fullAddress}
         </p>
       </div>
     </div>
