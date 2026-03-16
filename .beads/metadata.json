@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "Mimis_kreativstudio",
+  "project_id": "188a4816-0f9a-433a-a7af-40e94a1d6cc6"
+}
