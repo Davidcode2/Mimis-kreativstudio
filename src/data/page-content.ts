@@ -1,4 +1,4 @@
-// Page content for Mimis-kreativstudio
+// Page content for Mimis-Kreativstudio
 // Central location for all page text content
 
 export interface PageMeta {
@@ -21,7 +21,7 @@ export interface IntroContent {
 export const pageMeta: Record<string, PageMeta> = {
   home: {
     title: 'Startseite',
-    description: 'Mimis-kreativstudio - Handgefertigte Blumenkreationen für Ihre besonderen Momente. Blumenkränze, Sträuße, Adventskränze, Haar-Accessoires und Workshops.',
+    description: 'Mimis-Kreativstudio - Handgefertigte Blumenkreationen für Ihre besonderen Momente. Blumenkränze, Sträuße, Adventskränze, Haar-Accessoires und Workshops.',
   },
   leistungen: {
     title: 'Leistungen',
@@ -33,7 +33,7 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   kontakt: {
     title: 'Kontakt',
-    description: 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blumenkreationen, Workshops und Anfragen.',
+    description: 'Kontaktieren Sie Mimis-Kreativstudio für individuelle Blumenkreationen, Workshops und Anfragen.',
   },
   galerie: {
     title: 'Galerie',
@@ -41,18 +41,18 @@ export const pageMeta: Record<string, PageMeta> = {
   },
   impressum: {
     title: 'Impressum',
-    description: 'Impressum und rechtliche Informationen für Mimis-kreativstudio.',
+    description: 'Impressum und rechtliche Informationen für Mimis-Kreativstudio.',
   },
   datenschutz: {
     title: 'Datenschutzerklärung',
-    description: 'Informationen zum Datenschutz bei Mimis-kreativstudio gemäß DSGVO.',
+    description: 'Informationen zum Datenschutz bei Mimis-Kreativstudio gemäß DSGVO.',
   },
 };
 
 // Hero sections
 export const heroContent: Record<string, HeroContent> = {
   home: {
-    title: 'Mimis-kreativstudio',
+    title: 'Mimis-Kreativstudio',
     subtitle: 'Handgefertigte Blumenkreationen für Ihre besonderen Momente',
     backgroundImage: '/images/pride_back_hair_landscape_background.webp',
     showCta: true,
@@ -87,7 +87,7 @@ export const servicesHeader = {
 export const aboutContent = {
   title: 'Hallo, ich bin Miriam',
   paragraphs: [
-    'Willkommen bei <strong>Mimis-kreativstudio</strong> – meinem kleinen Reich der Blumen und kreativen Gestaltung. Hier entstehen mit viel Liebe zum Detail handgefertigte Blumenkreationen, die Ihre besonderen Momente unvergesslich machen.',
+    'Willkommen bei <strong>Mimis-Kreativstudio</strong> – meinem kleinen Reich der Blumen und kreativen Gestaltung. Hier entstehen mit viel Liebe zum Detail handgefertigte Blumenkreationen, die Ihre besonderen Momente unvergesslich machen.',
     'Als Blumenkunst-Meisterin verbinde ich traditionelles Handwerk mit modernem Design. Ob Hochzeit, Adventszeit oder ein ganz persönlicher Anlass – ich gestalte individuelle Arrangements, die Ihre Vision Wirklichkeit werden lassen.',
     'In meinen Workshops teile ich meine Leidenschaft für die Kunst der Blumenbindekunst und möchte Ihnen beibringen, wie Sie selbst wunderschöne Blumenkreationen gestalten können.',
   ],
@@ -97,7 +97,7 @@ export const aboutContent = {
     { value: '6', label: 'Kernleistungen' },
   ],
   ctaText: 'Lernen Sie mich kennen',
-  photoAlt: 'Miriam Mangold - Inhaberin von Mimis-kreativstudio',
+  photoAlt: 'Miriam Mangold - Inhaberin von Mimis-Kreativstudio',
   photoSrc: '/images/workshop_collage_packaged.webp',
 };
 
@@ -275,7 +275,7 @@ export const navContent = {
 // Footer
 export const footerContent = {
   brand: {
-    title: 'Mimis-kreativstudio',
+    title: 'Mimis-Kreativstudio',
     description: 'Handgefertigte Blumenkreationen für Ihre besonderen Momente. Mit Liebe zum Detail und natürlicher Schönheit.',
   },
   services: {

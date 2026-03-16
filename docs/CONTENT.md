@@ -1,4 +1,4 @@
-# Mimis-kreativstudio – Texte für die Website
+# Mimis-Kreativstudio – Texte für die Website
 
 *Texte erstellt von Miriam Mangold*
 
@@ -125,4 +125,4 @@ Die Workshops von Miriam Mangold bieten Ihnen die einzigartige Möglichkeit, in 
 
 ---
 
-*Alle Texte © Miriam Mangold – Mimis-kreativstudio*
+*Alle Texte © Miriam Mangold – Mimis-Kreativstudio*

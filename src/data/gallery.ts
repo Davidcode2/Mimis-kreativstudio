@@ -1,4 +1,4 @@
-// Gallery data for Mimis-kreativstudio
+// Gallery data for Mimis-Kreativstudio
 // Central location for all gallery images organized by category
 
 export interface GalleryImage {

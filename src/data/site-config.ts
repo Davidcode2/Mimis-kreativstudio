@@ -1,4 +1,4 @@
-// Site-wide configuration for Mimis-kreativstudio
+// Site-wide configuration for Mimis-Kreativstudio
 // Central location for all site metadata, contact info, and social links
 
 export interface SiteConfig {
@@ -30,7 +30,7 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  businessName: 'Mimis-kreativstudio',
+  businessName: 'Mimis-Kreativstudio',
   ownerName: 'Miriam Mangold',
 
   address: {
