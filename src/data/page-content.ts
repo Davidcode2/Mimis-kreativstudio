@@ -107,11 +107,11 @@ export const ctaContent = {
   subtitle: 'Lassen Sie uns gemeinsam etwas Besonderes gestalten. Kontaktieren Sie mich für ein unverbindliches Gespräch über Ihre Wünsche.',
   primaryButton: {
     text: 'Hallo sagen',
-    href: '/kontakt',
+    href: '/kontakt/',
   },
   secondaryButton: {
     text: 'Leistungen entdecken',
-    href: '/leistungen',
+    href: '/leistungen/',
   },
   contactCards: [
     {
@@ -124,13 +124,13 @@ export const ctaContent = {
       title: 'Kontakt',
       value: 'Schreiben Sie mir',
       icon: 'contact',
-      href: '/kontakt',
+      href: '/kontakt/',
     },
     {
       title: 'Standort',
       value: 'Böbingen an der Rems',
       icon: 'location',
-      href: '/kontakt',
+      href: '/kontakt/',
     },
   ],
 };
@@ -202,8 +202,8 @@ export const galleryContent = {
   cta: {
     title: 'Gefällt Ihnen was Sie sehen?',
     subtitle: 'Lassen Sie uns gemeinsam Ihre Traumkreation gestalten. Kontaktieren Sie mich für ein unverbindliches Gespräch.',
-    primaryButton: { text: 'Hallo sagen', href: '/kontakt' },
-    secondaryButton: { text: 'Alle Leistungen', href: '/leistungen' },
+    primaryButton: { text: 'Hallo sagen', href: '/kontakt/' },
+    secondaryButton: { text: 'Alle Leistungen', href: '/leistungen/' },
   },
 };
 
@@ -266,9 +266,9 @@ export const legalContent = {
 export const navContent = {
   items: [
     { label: 'Start', href: '/' },
-    { label: 'Leistungen', href: '/leistungen' },
-    { label: 'Über mich', href: '/ueber-mich' },
-    { label: 'Kontakt', href: '/kontakt' },
+    { label: 'Leistungen', href: '/leistungen/' },
+    { label: 'Über mich', href: '/ueber-mich/' },
+    { label: 'Kontakt', href: '/kontakt/' },
   ],
 };
 
@@ -292,10 +292,10 @@ export const footerContent = {
   company: {
     title: 'Unternehmen',
     links: [
-      { label: 'Über mich', href: '/ueber-mich' },
-      { label: 'Kontakt', href: '/kontakt' },
-      { label: 'Impressum', href: '/impressum' },
-      { label: 'Datenschutz', href: '/datenschutz' },
+      { label: 'Über mich', href: '/ueber-mich/' },
+      { label: 'Kontakt', href: '/kontakt/' },
+      { label: 'Impressum', href: '/impressum/' },
+      { label: 'Datenschutz', href: '/datenschutz/' },
     ],
   },
   copyright: 'Alle Rechte vorbehalten.',
