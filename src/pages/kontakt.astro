@@ -3,9 +3,10 @@
 // Created: 2026-03-15
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site-config';
+import { pageMeta, contactContent } from '../data/page-content';
 
-const title = 'Kontakt';
-const description = 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blumenkreationen, Workshops und Anfragen.';
+const { title, description } = pageMeta.kontakt;
+const content = contactContent;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,10 +24,10 @@ const description = 'Kontaktieren Sie Mimis-kreativstudio für individuelle Blum
       
       <div class="relative z-10 text-center px-4 max-w-3xl mx-auto">
         <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl text-gold-700 mb-4 tracking-wide">
-          Kontakt
+          {content.hero.title}
         </h1>
         <p class="font-body text-xl md:text-2xl text-gray-700 font-light italic">
-          Lassen Sie uns gemeinsam etwas Schönes erschaffen
+          {content.hero.subtitle}
         </p>
       </div>
     </section>

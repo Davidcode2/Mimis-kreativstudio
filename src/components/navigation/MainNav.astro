@@ -1,11 +1,7 @@
 ---
-const navItems = [
-  { label: 'Start', href: '/' },
-  { label: 'Leistungen', href: '/leistungen' },
-  { label: 'Über mich', href: '/ueber-mich' },
-  { label: 'Kontakt', href: '/kontakt' },
-];
+import { navContent, footerContent } from '../../data/page-content';
 
+const { items: navItems } = navContent;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -14,7 +10,7 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
       <a href="/" class="font-heading text-xl sm:text-2xl text-gold-700 hover:text-gold-600 transition-colors">
-        Mimis-kreativstudio
+        {footerContent.brand.title}
       </a>
 
       <!-- Desktop Navigation -->

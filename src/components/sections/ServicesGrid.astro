@@ -1,61 +1,7 @@
 ---
 // Services data with content from CONTENT.md
-const services = [
-  {
-    slug: 'blumenkraenze',
-    title: 'Blumenkränze',
-    subtitle: 'Zeitlose Eleganz',
-    description: 'Handgefertigte Blumenkränze aus natürlichen Blumen, mit Liebe zum Detail gestaltet.',
-    image: '/images/lush_kranz_white_hide_grass_bg.webp',
-    imagePosition: 'top-right' as const,
-    cornerIndex: 0,
-  },
-  {
-    slug: 'loops',
-    title: 'Loops',
-    subtitle: 'Moderne Eleganz',
-    description: 'Der zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.',
-    image: '/images/loop_in_progress_workshop.webp',
-    imagePosition: 'top-right' as const,
-    cornerIndex: 1,
-  },
-  {
-    slug: 'bluemenstrausse',
-    title: 'Blumensträuße',
-    subtitle: 'Natürliche Schönheit',
-    description: 'Frische Blumen, mit Liebe zusammengestellt – ein persönliches Statement.',
-    image: '/images/lush_strauss_in_hand_garden_background.webp',
-    imagePosition: 'bottom-left' as const,
-    cornerIndex: 2,
-  },
-  {
-    slug: 'adventskraenze',
-    title: 'Adventskränze',
-    subtitle: 'Festliche Tradition',
-    description: 'Traditionelles Handwerk für die schönste Zeit des Jahres mit weihnachtlicher Gemütlichkeit.',
-    image: '/images/adventskranz_white_candles_tall_white_bg.webp',
-    imagePosition: 'top-right' as const,
-    cornerIndex: 3,
-  },
-  {
-    slug: 'frisuren',
-    title: 'Frisuren',
-    subtitle: 'Romantischer Schmuck',
-    description: 'Zarte Blüten für Ihr Haar – romantischer Schmuck für unvergessliche Momente.',
-    image: '/images/services/frisuren/haarkranz_ganz.webp',
-    imagePosition: 'top-right' as const,
-    cornerIndex: 4,
-  },
-  {
-    slug: 'workshops',
-    title: 'Workshops',
-    subtitle: 'Kreatives Erlebnis',
-    description: 'Lernen Sie die Kunst der Floristik – für sich selbst oder im Team.',
-    image: '/images/services/workshops/loop_workshop_done_small.webp',
-    imagePosition: 'bottom-right' as const,
-    cornerIndex: 5,
-  },
-];
+import { displayServices } from '../../data/services-display';
+import { servicesHeader } from '../../data/page-content';
 
 // Alternate corner positions for visual variety
 const cornerPositions = ['top-right', 'bottom-left', 'top-right', 'top-right', 'top-right', 'bottom-right'] as const;
@@ -66,19 +12,19 @@ const cornerPositions = ['top-right', 'bottom-left', 'top-right', 'top-right', '
     {/* Section Header */}
     <div class="text-center mb-10 sm:mb-12 md:mb-16">
       <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-gold-700 mb-3 sm:mb-4">
-        Meine Leistungen
+        {servicesHeader.title}
       </h2>
       <p class="font-body text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
-        Entdecken Sie meine handgefertigten Blumenkreationen für jeden besonderen Anlass
+        {servicesHeader.subtitle}
       </p>
       <div class="w-20 sm:w-24 h-1 bg-champagne-400 mx-auto mt-4 sm:mt-6 "></div>
     </div>
 
     {/* Services Grid */}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-      {services.map((service, index) => (
+      {displayServices.map((service, index) => (
         <a 
-          href={`/leistungen/${service.slug}`}
+          href={`/services/${service.slug}`}
           class="block group"
         >
           <div class="relative overflow-hidden   transition-all duration-500 group-hover:shadow-2xl">
@@ -120,11 +66,11 @@ const cornerPositions = ['top-right', 'bottom-left', 'top-right', 'top-right', '
     {/* View All Link */}
     <div class="text-center mt-12">
       <a
-        href="/leistungen"
+        href="/services"
         class="inline-flex items-center px-8 py-3 border-2 border-gold-500 text-gold-700 
           hover:bg-gold-500 hover:text-white transition-all duration-300 font-body"
       >
-        Alle Leistungen ansehen
+        {servicesHeader.ctaText}
         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
         </svg>

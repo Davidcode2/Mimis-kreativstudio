@@ -1,10 +1,12 @@
 ---
+import { aboutContent } from '../../data/page-content';
+
 interface Props {
   photoAlt?: string;
 }
 
 const {
-  photoAlt = 'Miriam Mangold - Inhaberin von Mimis-kreativstudio'
+  photoAlt = aboutContent.photoAlt
 } = Astro.props;
 ---
 
@@ -16,7 +18,7 @@ const {
         <div class="relative order-2 md:order-1">
           <div class="aspect-[3/4] overflow-hidden bg-gray-100 border border-champagne-300">
             <img
-              src="/images/workshop_collage_packaged.webp"
+              src={aboutContent.photoSrc}
               alt={photoAlt}
               class="w-full h-full object-cover"
             />
@@ -28,42 +30,24 @@ const {
         {/* Content */}
         <div class="order-1 md:order-2">
           <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl text-gold-700 mb-4 sm:mb-6">
-            Hallo, ich bin Miriam
+            {aboutContent.title}
           </h2>
           <div class="w-16 sm:w-20 h-1 bg-champagne-400 mb-4 sm:mb-6"></div>
           
           <div class="space-y-4 sm:space-y-6 font-body text-gray-700 leading-relaxed text-sm sm:text-base">
-            <p>
-              Willkommen bei <strong>Mimis-kreativstudio</strong> – meinem kleinen Reich der Blumen 
-              und kreativen Gestaltung. Hier entstehen mit viel Liebe zum Detail handgefertigte 
-              Blumenkreationen, die Ihre besonderen Momente unvergesslich machen.
-            </p>
-            <p>
-              Als Blumenkunst-Meisterin verbinde ich traditionelles Handwerk mit modernem 
-              Design. Ob Hochzeit, Adventszeit oder ein ganz persönlicher Anlass – 
-              ich gestalte individuelle Arrangements, die Ihre Vision Wirklichkeit werden lassen.
-            </p>
-            <p>
-              In meinen Workshops teile ich meine Leidenschaft für die Kunst der Blumenbindekunst 
-              und möchte Ihnen beibringen, wie Sie selbst wunderschöne Blumenkreationen 
-              gestalten können.
-            </p>
+            {aboutContent.paragraphs.map((paragraph) => (
+              <p set:html={paragraph} />
+            ))}
           </div>
 
           {/* Highlights */}
           <div class="grid grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8">
-            <div class="text-center p-3 sm:p-4 bg-champagne-50 border border-champagne-300">
-              <span class="block font-heading text-2xl sm:text-3xl text-gold-600">10+</span>
-              <span class="text-xs sm:text-sm text-gray-600">Jahre Erfahrung</span>
-            </div>
-            <div class="text-center p-3 sm:p-4 bg-champagne-100 border border-champagne-300">
-              <span class="block font-heading text-2xl sm:text-3xl text-champagne-600">500+</span>
-              <span class="text-xs sm:text-sm text-gray-600"> zufriedene Kunden</span>
-            </div>
-            <div class="text-center p-3 sm:p-4 bg-champagne-50 border border-champagne-300">
-              <span class="block font-heading text-2xl sm:text-3xl text-gold-600">6</span>
-              <span class="text-xs sm:text-sm text-gray-600">Kernleistungen</span>
-            </div>
+            {aboutContent.highlights.map((highlight, index) => (
+              <div class={`text-center p-3 sm:p-4 border border-champagne-300 ${index === 1 ? 'bg-champagne-100' : 'bg-champagne-50'}`}>
+                <span class={`block font-heading text-2xl sm:text-3xl ${index === 1 ? 'text-champagne-600' : 'text-gold-600'}`}>{highlight.value}</span>
+                <span class="text-xs sm:text-sm text-gray-600">{highlight.label}</span>
+              </div>
+            ))}
           </div>
 
           {/* CTA */}
@@ -73,7 +57,7 @@ const {
               class="inline-flex items-center px-5 sm:px-6 py-2.5 sm:py-3 bg-champagne-400 text-gold-800 border border-champagne-500
                 hover:bg-champagne-500 transition-all duration-300 font-body text-sm sm:text-base"
             >
-              Lernen Sie mich kennen
+              {aboutContent.ctaText}
               <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>

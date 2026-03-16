@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
+import { pageMeta } from '../data/page-content';
 
-const title = 'Über mich';
-const description = 'Lernen Sie Miriam Mangold kennen – Ihre Blumenkunst-Meisterin für handgefertigte Blumenkreationen in der Region Stuttgart.';
+const { title, description } = pageMeta.ueberMich;
 ---
 
 <BaseLayout title={title} description={description}>

@@ -1,71 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { pageMeta, galleryContent } from '../data/page-content';
+import { galleryCategories, getCategoryId } from '../data/gallery';
 
-const title = 'Galerie';
-const description = 'Entdecken Sie meine handgefertigten Blumenkreationen – von eleganten Sträußen bis hin zu kunstvollen Kränzen und Haar-Accessoires.';
-
-// Gallery images organized by category
-const galleryCategories = [
-  {
-    name: 'Blumenkränze',
-    description: 'Zeitlose Eleganz aus natürlichen Blumen',
-    images: [
-      { src: '/images/kranz_standard.webp', alt: 'Blumenkranz Standard', caption: 'Klassischer Blumenkranz' },
-      { src: '/images/kranz_hortensie_mit_kerze.webp', alt: 'Hortensienkranz mit Kerze', caption: 'Hortensienkranz mit LED-Kerze' },
-      { src: '/images/kranz_lang_kerzen_weiss.webp', alt: 'Langer Kranz mit weißen Kerzen', caption: 'Langer Kranz mit weißen Kerzen' },
-      { src: '/images/Kranz Standard .webp', alt: 'Blumenkranz Standard Variante', caption: 'Standard Blumenkranz' },
-    ]
-  },
-  {
-    name: 'Loops',
-    description: 'Moderne Eleganz – der zeitgemäße Kranz',
-    images: [
-      { src: '/images/loop_standard_rot_gruen.webp', alt: 'Loop in Rot und Grün', caption: 'Loop in Rot und Grün' },
-      { src: '/images/loop_gross_arbeitstisch.webp', alt: 'Großer Loop am Arbeitstisch', caption: 'Großer Loop' },
-      { src: '/images/loop_workshop_done_small.webp', alt: 'Workshop Loop fertiggestellt', caption: 'Workshop Ergebnis' },
-      { src: '/images/loop_workshop_klein.webp', alt: 'Kleiner Workshop Loop', caption: 'Kleiner Workshop Loop' },
-    ]
-  },
-  {
-    name: 'Blumensträuße',
-    description: 'Natürliche Schönheit für jeden Anlass',
-    images: [
-      { src: '/images/brautsrauss_lila.webp', alt: 'Lila Brautstrauß', caption: 'Lila Brautstrauß' },
-      { src: '/images/strauss_weiss.webp', alt: 'Weißer Blumenstrauß', caption: 'Weißer Blumenstrauß' },
-    ]
-  },
-  {
-    name: 'Adventskränze',
-    description: 'Festliche Tradition für die schönste Zeit',
-    images: [
-      { src: '/images/kranz_hortensie_mit_kerze.webp', alt: 'Adventskranz mit Hortensien', caption: 'Adventskranz mit Hortensien' },
-    ]
-  },
-  {
-    name: 'Frisuren',
-    description: 'Romantischer Blütenschmuck für Ihr Haar',
-    images: [
-      { src: '/images/haarkranz_ganz.webp', alt: 'Haarkranz ganz', caption: 'Haarkranz – Blütenschmuck' },
-    ]
-  },
-  {
-    name: 'Workshops',
-    description: 'Kreative Erlebnisse in der Blumenkunst',
-    images: [
-      { src: '/images/loop_workshop_done_small.webp', alt: 'Workshop Teilnehmer', caption: 'Workshop Teilnehmer' },
-      { src: '/images/loop_workshop_klein.webp', alt: 'Workshop Kleinarbeit', caption: 'Workshop Kleinarbeit' },
-      { src: '/images/workshop_schere.webp', alt: 'Workshop Schere', caption: 'Mein Werkzeug' },
-    ]
-  },
-  {
-    name: 'Trauerkränze',
-    description: 'Ehrende Kreationen für Abschiede',
-    images: [
-      { src: '/images/trauerkranz.webp', alt: 'Trauerkranz', caption: 'Trauerkranz' },
-      { src: '/images/trauerkranz_auf_fell_weiss.webp', alt: 'Trauerkranz auf weißem Fell', caption: 'Trauerkranz auf Fell' },
-    ]
-  },
-];
+const { title, description } = pageMeta.galerie;
+const content = galleryContent;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -74,11 +13,10 @@ const galleryCategories = [
     <section class="relative py-20 bg-gradient-to-br from-champagne-50 via-white to-champagne-100">
       <div class="container mx-auto px-4 text-center">
         <h1 class="font-heading text-5xl md:text-6xl text-gold-700 mb-4">
-          Galerie
+          {content.hero.title}
         </h1>
         <p class="font-body text-xl text-gray-700 max-w-2xl mx-auto mb-6">
-          Entdecken Sie meine handgefertigten Blumenkreationen – von eleganten Sträußen 
-          bis hin zu kunstvollen Kränzen und romantischen Haar-Accessoires.
+          {content.hero.subtitle}
         </p>
         <div class="w-24 h-1 bg-champagne-400 mx-auto "></div>
       </div>
@@ -90,7 +28,7 @@ const galleryCategories = [
         <nav class="flex flex-wrap justify-center gap-4" id="gallery-nav">
           {galleryCategories.map((category) => (
             <a 
-              href={`#${category.name.toLowerCase().replace(/ä/g, 'ae').replace(/\s/g, '-')}`}
+              href={`#${getCategoryId(category.name)}`}
               class="px-6 py-2 bg-gold-50 hover:bg-gold-100 text-gold-700  
                      font-body text-sm transition-all duration-300 hover:
                      border border-gold-200 hover:border-gold-400"
@@ -105,7 +43,7 @@ const galleryCategories = [
     {/* Gallery Sections */}
     {galleryCategories.map((category) => (
       <section 
-        id={category.name.toLowerCase().replace(/ä/g, 'ae').replace(/\s/g, '-')}
+        id={getCategoryId(category.name)}
         class="py-16 bg-white"
       >
         <div class="container mx-auto px-4">

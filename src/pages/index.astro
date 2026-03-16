@@ -5,27 +5,27 @@ import Hero from '../components/sections/Hero.astro';
 import ServicesList from '../components/sections/ServicesList.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import { pageMeta, heroContent, introContent } from '../data/page-content';
 
-const title = 'Startseite';
-const description = 'Mimis-kreativstudio - Handgefertigte Blumenkreationen für Ihre besonderen Momente. Blumenkränze, Sträuße, Adventskränze, Haar-Accessoires und Workshops.';
+const { title, description } = pageMeta.home;
+const hero = heroContent.home;
 ---
 
 <BaseLayout title={title} description={description}>
   <main>
     <!-- Hero Section -->
     <Hero
-      title="Mimis-kreativstudio"
-      subtitle="Handgefertigte Blumenkreationen für Ihre besonderen Momente"
-      backgroundImage="/images/pride_back_hair_landscape_background.webp"
-      showCta={true}
+      title={hero.title}
+      subtitle={hero.subtitle}
+      backgroundImage={hero.backgroundImage}
+      showCta={hero.showCta}
     />
 
     <!-- Introduction -->
     <section class="py-16 bg-white">
       <div class="container mx-auto px-4 text-center max-w-3xl">
         <p class="font-body text-xl text-gray-700 leading-relaxed italic">
-          "Jede Blume erzählt eine Geschichte. Lassen Sie uns gemeinsam Ihre Geschichte 
-          in wunderschönen Arrangements verewigen."
+          {introContent.quote}
         </p>
         <div class="w-16 h-px bg-gold-400 mx-auto mt-6"></div>
       </div>

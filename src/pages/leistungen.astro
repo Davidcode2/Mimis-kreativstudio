@@ -2,17 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import { pageMeta, heroContent } from '../data/page-content';
 
-const title = 'Leistungen';
-const description = 'Entdecken Sie meine handgefertigten Blumenkreationen: Blumenkränze, Loops, Blumensträuße, Adventskränze, Haar-Accessoires und Workshops.';
+const { title, description } = pageMeta.leistungen;
+const hero = heroContent.leistungen;
 ---
 
 <BaseLayout title={title} description={description}>
   <Hero 
-    title="Meine Leistungen"
-    subtitle="Handgefertigte Blumenkreationen für Ihre besonderen Momente"
-    backgroundImage="/images/small_strauss_on_brown_hide.webp"
-    showCta={false}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    backgroundImage={hero.backgroundImage}
+    showCta={hero.showCta}
   />
   <ServicesGrid />
 </BaseLayout>
