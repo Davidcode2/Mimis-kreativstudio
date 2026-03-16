@@ -111,23 +111,26 @@ export const ctaContent = {
   },
   secondaryButton: {
     text: 'Leistungen entdecken',
-    href: '/services',
+    href: '/leistungen',
   },
   contactCards: [
     {
-      title: 'E-Mail',
-      value: 'hello@mimis-kreativstudio.de',
-      icon: 'email',
+      title: 'Instagram',
+      value: '@mimis_kreativstudio',
+      icon: 'instagram',
+      href: 'https://www.instagram.com/mimis_kreativstudio/',
     },
     {
-      title: 'Telefon',
-      value: '+49 (0) 123 456 789',
-      icon: 'phone',
+      title: 'Kontakt',
+      value: 'Schreiben Sie mir',
+      icon: 'contact',
+      href: '/kontakt',
     },
     {
       title: 'Standort',
-      value: 'Region Stuttgart',
+      value: 'Böbingen an der Rems',
       icon: 'location',
+      href: '/kontakt',
     },
   ],
 };
@@ -263,7 +266,7 @@ export const legalContent = {
 export const navContent = {
   items: [
     { label: 'Start', href: '/' },
-    { label: 'Leistungen', href: '/services' },
+    { label: 'Leistungen', href: '/leistungen' },
     { label: 'Über mich', href: '/ueber-mich' },
     { label: 'Kontakt', href: '/kontakt' },
   ],
@@ -278,12 +281,12 @@ export const footerContent = {
   services: {
     title: 'Leistungen',
     links: [
-      { label: 'Blumenkränze', href: '/services/blumenkraenze' },
-      { label: 'Loops', href: '/services/loops' },
-      { label: 'Blumensträuße', href: '/services/bluemenstrausse' },
-      { label: 'Adventskränze', href: '/services/adventskraenze' },
-      { label: 'Frisuren', href: '/services/frisuren' },
-      { label: 'Workshops', href: '/services/workshops' },
+      { label: 'Blumenkränze', href: '/leistungen/blumenkraenze' },
+      { label: 'Loops', href: '/leistungen/loops' },
+      { label: 'Blumensträuße', href: '/leistungen/bluemenstrausse' },
+      { label: 'Adventskränze', href: '/leistungen/adventskraenze' },
+      { label: 'Frisuren', href: '/leistungen/frisuren' },
+      { label: 'Workshops', href: '/leistungen/workshops' },
     ],
   },
   company: {
