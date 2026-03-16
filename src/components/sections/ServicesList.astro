@@ -112,20 +112,26 @@ const services = [
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   
-                  {/* Gradient overlay - fades image to white on side where header overlaps */}
+                  {/* Mobile: gradient from bottom to transparent for text readability */}
                   <div class:list={[
-                    "absolute inset-0",
+                    "lg:hidden absolute inset-x-0 bottom-0 h-[30%]",
+                    "bg-gradient-to-t from-white via-white/80 to-transparent"
+                  ]}></div>
+                  
+                  {/* Desktop: gradient overlay fades image to white on side where header overlaps */}
+                  <div class:list={[
+                    "hidden lg:block absolute inset-0",
                     isEven 
                       ? "bg-gradient-to-l from-transparent via-white/80 via-[45%] to-white/95" 
                       : "bg-gradient-to-r from-transparent via-white/80 via-[45%] to-white/95"
                   ]}></div>
                 </div>
 
-                {/* Title Overlay */}
+                {/* Title Overlay - positioned to partially overlap image on desktop */}
                 <div class:list={[
                   "absolute bottom-4 left-4 right-4",
                   "lg:absolute lg:bottom-8",
-                  isEven ? "lg:left-8 lg:right-auto" : "lg:right-8 lg:left-auto",
+                  isEven ? "lg:left-0 lg:-translate-x-1/4" : "lg:right-0 lg:translate-x-1/4",
                 ]}>
                   <h3 class:list={[
                     "font-heading text-3xl md:text-4xl lg:text-6xl xl:text-7xl",
