@@ -42,7 +42,8 @@ export const siteConfig: SiteConfig = {
     },
   },
 
-  email: 'hello@mimis-kreativstudio.de',
+  // Note: Email removed - using Instagram for contact instead
+  // email: 'hello@mimis-kreativstudio.de',
   phone: undefined,
 
   social: {
