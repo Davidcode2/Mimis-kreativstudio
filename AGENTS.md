@@ -59,7 +59,7 @@ const { src, alt, imagePosition = 'top-right', className = '' } = Astro.props;
 - Breakpoints: `sm:`, `md:`, `lg:` (mobile-first)
 
 ### Naming Conventions
-- Components: PascalCase (e.g., `ImageCard.astro`)
+- Components: PascalCase (e.g., `Hero.astro`, `ServicesGrid.astro`)
 - Utilities/data: camelCase (e.g., `services.ts`)
 - Directories: lowercase with hyphens (e.g., `navigation/`, `sections/`)
 - Props destructuring with defaults in `const` declaration
@@ -68,16 +68,30 @@ const { src, alt, imagePosition = 'top-right', className = '' } = Astro.props;
 ```
 src/
 ├── components/
-│   ├── navigation/     # Nav components
-│   ├── sections/       # Page sections
-│   └── ui/             # Reusable UI components
-├── layouts/            # Page layouts
+│   ├── navigation/     # Nav components (MainNav, FooterNav)
+│   └── sections/       # Page sections (Hero, ServicesGrid, etc.)
+├── layouts/            # Page layouts (BaseLayout, PageLayout)
 ├── pages/              # Routes (Astro file = route)
-│   └── services/
-│       └── [service].astro  # Dynamic routes
+│   ├── leistungen/     # Service subpages
+│   │   └── [service].astro  # Dynamic service routes
+│   ├── datenschutz.astro
+│   ├── galerie.astro
+│   ├── impressum.astro
+│   ├── index.astro
+│   ├── kontakt.astro
+│   ├── leistungen.astro
+│   └── ueber-mich.astro
 ├── data/               # Data & types
-└── styles/
-    └── global.css      # Tailwind + custom theme
+│   ├── gallery.ts      # Gallery image data
+│   ├── page-content.ts # Page text content
+│   ├── services-display.ts # Service display data
+│   ├── services.ts     # Service definitions
+│   └── site-config.ts  # Site configuration
+├── styles/
+│   └── global.css      # Tailwind + custom theme
+└── scripts/            # Build/utility scripts
+    ├── convert-images.js
+    └── organize-images.js
 ```
 
 ### Error Handling
@@ -94,6 +108,19 @@ src/
 ### Images
 - Place in `/public/images/`
 - Use `.webp` format for photos
+- Organize in subdirectories by service type:
+  ```
+  public/images/
+  ├── services/
+  │   ├── blumenkraenze/
+  │   ├── blumenstrausse/
+  │   ├── loops/
+  │   ├── frisuren/
+  │   ├── adventskraenze/
+  │   └── workshops/
+  ├── hero/
+  └── about/
+  ```
 - Include `loading="lazy"` for below-fold images
 - Use sharp (dev dependency) for image optimization
 
