@@ -23,7 +23,7 @@ export const displayServices: DisplayService[] = [
     slug: 'loops',
     title: 'Loops',
     subtitle: 'Moderne Eleganz',
-    description: 'Der zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.',
+    description: 'Die zeitgemäße Schwester des traditionellen Kranzes – minimalistisch und stilvoll.',
     image: '/images/loop_in_progress_workshop.webp',
   },
   {
