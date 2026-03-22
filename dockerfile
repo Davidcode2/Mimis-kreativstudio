@@ -4,6 +4,14 @@ FROM node:22-alpine AS builder
 # Set working directory
 WORKDIR /app
 
+# Accept build arguments for environment variables
+ARG PUBLIC_MESSAGE_ROUTER_URL
+ARG PUBLIC_MESSAGE_ROUTER_API_KEY
+
+# Set environment variables for the build process
+ENV PUBLIC_MESSAGE_ROUTER_URL=${PUBLIC_MESSAGE_ROUTER_URL}
+ENV PUBLIC_MESSAGE_ROUTER_API_KEY=${PUBLIC_MESSAGE_ROUTER_API_KEY}
+
 # Copy package files
 COPY package.json package-lock.json ./
 
@@ -13,10 +21,10 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Remove dev .env to ensure production env is used
-RUN rm -f .env
+# Remove any .env files to prevent conflicts with build args
+RUN rm -f .env .env.production .env.local
 
-# Build the application (will use .env.production)
+# Build the application
 RUN npm run build
 
 # Stage 2: Runtime with nginx
