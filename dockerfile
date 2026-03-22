@@ -13,7 +13,10 @@ RUN npm ci
 # Copy source code
 COPY . .
 
-# Build the application
+# Remove dev .env to ensure production env is used
+RUN rm -f .env
+
+# Build the application (will use .env.production)
 RUN npm run build
 
 # Stage 2: Runtime with nginx
