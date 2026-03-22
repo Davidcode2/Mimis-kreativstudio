@@ -105,7 +105,7 @@ jobs:
       dockerfile: dockerfile
       ref: ${{ needs.bump-version.outputs.sha }}
       build_args: |
-        PUBLIC_MESSAGE_ROUTER_URL=http://message-router:3000/v1/submit
+        PUBLIC_MESSAGE_ROUTER_URL=https://notifications.jakob-lingel.dev/v1/submit
         PUBLIC_MESSAGE_ROUTER_API_KEY=hKIyrwchSilSPF0Ifdrd3fTr2N9zCwMS
     secrets: inherit
 
