@@ -1,41 +1,53 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/site-config';
-import { pageMeta, legalContent } from '../data/page-content';
+import { pageMeta } from '../data/page-content';
 
 const { title, description } = pageMeta.impressum;
-const content = legalContent.impressum;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-3xl">
-      <h1 class="font-heading text-4xl md:text-5xl text-gold-700 mb-8">{content.title}</h1>
+      <h1 class="font-heading text-4xl md:text-5xl text-gold-700 mb-8">Impressum</h1>
       
       <div class="prose prose-lg font-body text-gray-700">
-        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">{content.sections.provider.title}</h2>
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Angaben gemäß § 5 DDG</h2>
         <p>
-          <strong>{siteConfig.businessName}</strong><br>
-          {siteConfig.ownerName}<br>
-          {siteConfig.address.street}<br>
-          {siteConfig.address.zipCode} {siteConfig.address.city}
+          <strong>Mimis-Kreativstudio</strong><br>
+          Miriam Mangold<br>
+          Amselweg 3<br>
+          73560 Böbingen an der Rems
         </p>
 
-        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">{content.sections.contact.title}</h2>
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Kontakt</h2>
         <p>
+          E-Mail: <a href="mailto:miriam-sophie94@web.de" class="text-gold-600 hover:underline">miriam-sophie94@web.de</a><br>
           Instagram: <a href={siteConfig.social.instagram} target="_blank" class="text-gold-600 hover:underline">@mimis_kreativstudio</a>
         </p>
 
-        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">{content.sections.vat.title}</h2>
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Umsatzsteuer-ID</h2>
         <p>
-          {content.sections.vat.text}<br>
-          {siteConfig.vatId || '[USt-IdNr.]'}
+          Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet und daher keine Umsatzsteuer-Identifikationsnummer ausgewiesen.
         </p>
 
-        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">{content.sections.content.title}</h2>
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Redaktionell verantwortlich</h2>
         <p>
-          {siteConfig.ownerName}<br>
-          {siteConfig.address.fullAddress}
+          Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br><br>
+          Miriam Mangold<br>
+          Amselweg 3<br>
+          73560 Böbingen an der Rems
+        </p>
+
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">EU-Streitschlichtung</h2>
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" class="text-gold-600 hover:underline">https://ec.europa.eu/consumers/odr/</a>.<br><br>
+          Unsere E-Mail-Adresse finden Sie oben im Impressum.
+        </p>
+
+        <h2 class="font-heading text-2xl text-gold-600 mt-8 mb-4">Verbraucherstreitbeilegung/Universalschlichtungsstelle</h2>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
         </p>
       </div>
     </div>
